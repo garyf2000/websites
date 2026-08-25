@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./ds-base.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0}
+a{color:#7db8f0;text-decoration:none}
+a:hover{color:#a8d0f5;text-decoration:underline}
+</style>
+</helmet>
+<div class="theme-dark" style="min-height:100vh;background:var(--en-theme-color-background-surface-elevation-0);color:var(--en-theme-color-content-default);font-family:var(--en-theme-font-family-primary, 'Source Sans Pro', sans-serif)">
+  <div style="display:flex;align-items:center;gap:24px;height:72px;padding:0 40px;background:var(--en-theme-color-background-surface-elevation-1);border-bottom:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16))">
+    <div style="font-size:20px;font-weight:600">Photo Manager</div>
+    <div style="font-size:14px;color:var(--en-theme-color-content-subtle, rgba(255,255,255,0.65))">Internal page &mdash; not linked from the website</div>
+    <div style="flex:1"></div>
+    <a href="Landscape Projects.dc.html" style="font-size:15px">&larr; Back to website</a>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:40px;display:flex;flex-direction:column;gap:20px">
+    <p style="margin:0;font-size:15px;line-height:1.6;color:var(--en-theme-color-content-subtle, rgba(255,255,255,0.65));max-width:720px">Hover a photo for Replace and Edit (reframe/crop). Drag a new image onto a tile to swap it. Changes save automatically and show on the website's cards and detail views.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="height:240px;border:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16));border-radius:10px;overflow:hidden">
+            <image-slot id="ph-{{ p.id }}" shape="rect" src="images/{{ p.id }}.webp" placeholder="Drop a photo of {{ p.title }}"></image-slot>
+          </div>
+          <div style="font-size:15px;font-weight:600">{{ p.title }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { projects: [
+      { id: 'hillcrest', title: 'Hillcrest Backyard Retreat' },
+      { id: 'maple', title: 'Maple Court Xeriscape' },
+      { id: 'lakeview', title: 'Lakeview Terrace Walls' },
+      { id: 'cedar', title: 'Cedar Hollow Outdoor Kitchen' },
+      { id: 'willow', title: 'Willow Park Pollinator Garden' },
+      { id: 'stonegate', title: 'Stonegate Pool Surround' }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

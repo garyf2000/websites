@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="EN Guest Access" description="Guest Access splash template gallery: system/user template tabs and a card grid of splash page previews" -->
+<helmet><script src="./ds-base.js"></script></helmet>
+<div class="theme-dark" style="display:flex;flex-direction:column;gap:16px;height:100vh;box-sizing:border-box;padding:16px;font-family:var(--en-theme-font-family-primary, 'Source Sans Pro', sans-serif);background:var(--en-theme-color-background-surface-elevation-0)">
+  <div style="display:flex;align-items:center;gap:16px;height:64px;padding:0 16px;background:var(--en-theme-color-background-surface-elevation-1);border-radius:8px;flex-shrink:0">
+    <x-import component-from-global-scope="EnReact.ENProductLogo" product="ep1-networking" height="32" hint-size="220px,32px"></x-import>
+    <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" hint-size="200px,40px">Org Name / Account Name</x-import>
+    <div style="flex:1"></div>
+    <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="40px,40px" style="width: 40px"><x-import component-from-global-scope="EnReact.ENNotificationsIndicator" hint-size="24px,24px"></x-import></x-import>
+    <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="40px,40px" style="width: 40px"><x-import component-from-global-scope="EnReact.ENAvatar" variant="sm" hint-size="28px,28px"><x-import component-from-global-scope="EnReact.ENIconUser" size="16" hint-size="16px,16px"></x-import></x-import></x-import>
+    <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="40px,40px" style="width: 40px"><div style="display:grid;grid-template-columns:repeat(3,4px);grid-template-rows:repeat(3,4px);gap:3px"><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div><div style="width:4px;height:4px;border-radius:50%;background:currentColor"></div></div></x-import>
+  </div>
+  <div style="display:flex;flex:1;gap:16px;overflow:hidden">
+    <x-import component-from-global-scope="EnReact.ENNavigationMenu" align="left" is-active="{{ true }}" style="border-radius:8px;overflow:hidden;flex-shrink:0" hint-size="280px,100%">
+      <x-import component-from-global-scope="EnReact.ENMenuItem" is-header="{{ true }}" is-expanded="{{ false }}" is-expandable-header="{{ true }}" group-id="section-workspace" hint-size="100%,40px">Workspace</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" is-header="{{ true }}" is-expanded="{{ true }}" is-expandable-header="{{ true }}" group-id="section-monitoring" hint-size="100%,40px">Monitoring</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-monitoring" hint-size="100%,40px">Dashboard</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-monitoring" hint-size="100%,40px">Visualize</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-monitoring" hint-size="100%,40px">Alerts</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-monitoring" hint-size="100%,40px">Network Devices</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-monitoring" hint-size="100%,40px">Clients</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" is-header="{{ true }}" is-expanded="{{ true }}" is-expandable-header="{{ true }}" group-id="section-configuration" hint-size="100%,40px">Configuration</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-configuration" hint-size="100%,40px">Sites</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-configuration" hint-size="100%,40px">Network Policies</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-configuration" hint-size="100%,40px">Third-Party Management</x-import>
+      <div style="background:var(--en-theme-color-background-transparent-emphasis, rgba(255,255,255,0.08));border-radius:4px"><x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-configuration" is-selected="{{ true }}" is-active="{{ true }}" hint-size="100%,40px">Guest Access</x-import></div>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" is-header="{{ true }}" is-expanded="{{ false }}" is-expandable-header="{{ false }}" hint-size="100%,40px">Reports</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" is-header="{{ true }}" is-expanded="{{ true }}" is-expandable-header="{{ true }}" group-id="section-subscriptions" hint-size="100%,40px">Subscriptions &amp; Services</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-subscriptions" hint-size="100%,40px">Subscriptions &amp; Licensing</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-subscriptions" hint-size="100%,40px">Inventory</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-subscriptions" hint-size="100%,40px">Contracts</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" is-header="{{ true }}" is-expanded="{{ true }}" is-expandable-header="{{ true }}" group-id="section-admin" hint-size="100%,40px">Administration &amp; Settings</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-admin" hint-size="100%,40px">Access Management</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-admin" hint-size="100%,40px">Alert Policies</x-import>
+      <x-import component-from-global-scope="EnReact.ENMenuItem" group-id="section-admin" hint-size="100%,40px">External Notifications</x-import>
+    </x-import>
+    <div style="flex:1;display:flex;flex-direction:column;gap:24px;min-width:0;background:var(--en-theme-color-background-surface-elevation-1);border-radius:8px;padding:24px;overflow:auto">
+      <div style="display:flex;align-items:center;gap:16px;flex-shrink:0">
+        <x-import component-from-global-scope="EnReact.ENBreadcrumbs" hint-size="360px,40px">
+          <x-import component-from-global-scope="EnReact.ENBreadcrumbsItem" hint-size="140px,32px">Guest Access</x-import>
+          <x-import component-from-global-scope="EnReact.ENBreadcrumbsItem" is-current="{{ true }}" hint-size="160px,32px">Splash Template</x-import>
+        </x-import>
+        <x-import component-from-global-scope="EnReact.ENButton" variant="secondary" hint-size="110px,40px"><span style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap"><x-import component-from-global-scope="EnReact.ENIconChevronDown" size="16" style="display:inline-flex;width:16px;height:16px" hint-size="16px,16px"></x-import>Menu</span></x-import>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;flex-shrink:0;border-bottom:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16));min-width:0">
+        <x-import component-from-global-scope="EnReact.ENTabs" variant="secondary" hint-size="360px,48px">
+          <x-import component-from-global-scope="EnReact.ENTab" is-active="{{ true }}" hint-size="160px,48px">System Templates</x-import>
+          <x-import component-from-global-scope="EnReact.ENTab" hint-size="140px,48px">User Templates</x-import>
+        </x-import>
+        <div style="flex:1"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-bottom:8px;min-width:0">
+          <x-import component-from-global-scope="EnReact.ENButton" variant="secondary" hint-size="40px,40px"><span style="display:inline-flex;align-items:center;justify-content:center"><x-import component-from-global-scope="EnReact.ENIconAlphabetical" size="16" style="display:inline-flex;width:16px;height:16px" hint-size="16px,16px"></x-import></span></x-import>
+          <x-import component-from-global-scope="EnReact.ENButton" variant="secondary" hint-size="180px,40px">Show All Templates</x-import>
+          <x-import component-from-global-scope="EnReact.ENButton" variant="secondary" hint-size="300px,40px">Splash Template Mapping Summary</x-import>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:24px;align-content:start">
+        <x-import component-from-global-scope="EnReact.ENCard" hint-size="100%,340px">
+          <div slot="header" style="font-size:20px;color:var(--en-theme-color-content-default)">Accept &amp; Connect</div>
+          <div slot="actions-right" style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconCopy" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconDownload" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import></div>
+          <div style="height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16));border-radius:6px"><x-import component-from-global-scope="EnReact.ENImagePlaceholder" label="Demo Template Content" size="lg" hint-size="160px,160px"><x-import component-from-global-scope="EnReact.ENIconImage" slot="icon" size="lg" hint-size="32px,32px"></x-import></x-import></div>
+        </x-import>
+        <x-import component-from-global-scope="EnReact.ENCard" hint-size="100%,340px">
+          <div slot="header" style="font-size:20px;color:var(--en-theme-color-content-default)">Email Access</div>
+          <div slot="actions-right" style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconCopy" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconDownload" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import></div>
+          <div style="height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16));border-radius:6px"><x-import component-from-global-scope="EnReact.ENImagePlaceholder" label="Demo Template Content" size="lg" hint-size="160px,160px"><x-import component-from-global-scope="EnReact.ENIconImage" slot="icon" size="lg" hint-size="32px,32px"></x-import></x-import></div>
+        </x-import>
+        <x-import component-from-global-scope="EnReact.ENCard" hint-size="100%,340px">
+          <div slot="header" style="font-size:20px;color:var(--en-theme-color-content-default)">Sponsored Guest Access</div>
+          <div slot="actions-right" style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconCopy" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconDownload" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import></div>
+          <div style="height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16));border-radius:6px"><x-import component-from-global-scope="EnReact.ENImagePlaceholder" label="Demo Template Content" size="lg" hint-size="160px,160px"><x-import component-from-global-scope="EnReact.ENIconImage" slot="icon" size="lg" hint-size="32px,32px"></x-import></x-import></div>
+        </x-import>
+        <x-import component-from-global-scope="EnReact.ENCard" hint-size="100%,340px">
+          <div slot="header" style="font-size:20px;color:var(--en-theme-color-content-default)">Forgot Passcode</div>
+          <div slot="actions-right" style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconCopy" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import><x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconDownload" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import></div>
+          <div style="height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--en-theme-color-border, rgba(255,255,255,0.16));border-radius:6px"><x-import component-from-global-scope="EnReact.ENImagePlaceholder" label="Demo Template Content" size="lg" hint-size="160px,160px"><x-import component-from-global-scope="EnReact.ENIconImage" slot="icon" size="lg" hint-size="32px,32px"></x-import></x-import></div>
+        </x-import>
+      </div>
+    </div>
+    <div style="width:56px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0;background:var(--en-theme-color-background-surface-elevation-1);border-radius:8px">
+      <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconCustomize" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import>
+      <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconLayout" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import>
+      <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconBook" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import>
+      <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconInspect" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import>
+      <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconSettingsSquare" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import>
+      <div style="flex:1"></div>
+      <x-import component-from-global-scope="EnReact.ENControlButton" variant="quaternary-secondary" is-small="{{ true }}" hint-size="32px,32px"><x-import component-from-global-scope="EnReact.ENIconHelp" size="20" style="display:inline-flex;width:20px;height:20px" hint-size="20px,20px"></x-import></x-import>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
