@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get a free quote from Maxy</title>
+<meta name="description" content="Tell Maxy about your project and get a price range and a plan within one business day.">
+<link rel="icon" href="assets/logo-gold.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=Outfit:wght@400;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="brand brand--gold" href="index.html" aria-label="Maxy Web Design home"><img src="assets/logo-gold.svg" alt="" width="40" height="40"><span class="brand__name">Maxy<small>Web Design</small></span></a>
+    <nav class="nav__links" id="navlinks" aria-label="Main">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a class="nav__quote" href="quote.html" aria-current="page">Quote</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+  <section class="page-head" aria-labelledby="q-h">
+    <div class="glow glow--v" aria-hidden="true"></div>
+    <div class="glow glow--r" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="label"><b>●</b> Free quote</p>
+      <h1 id="q-h">Tell us about <span class="grad">your project.</span></h1>
+      <p class="hero__lead">A few details are enough. We reply within one business day with a price range and a plan.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <p id="msg" class="reply" role="status" style="display:none;font-size:20px;margin-bottom:24px"></p>
+      <form class="form" method="post" action="send-quote.php">
+        <label class="field" style="position:absolute;left:-9999px" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+        <label class="field">Your name<input name="name" autocomplete="name" required></label>
+        <label class="field">Email<input name="email" type="email" autocomplete="email" required></label>
+        <label class="field">Business name<input name="business" autocomplete="organization"></label>
+        <label class="field">What you need<select name="type"><option>New website</option><option>Redesign</option><option>Updates and upkeep</option></select></label>
+        <label class="field field--full">Budget<select name="budget"><option>Under $1,000</option><option selected>$1,000 to $3,000</option><option>$3,000 or more</option><option>Not sure yet</option></select></label>
+        <label class="field field--full">About the project<textarea name="details" placeholder="What does your business do, and what should the site achieve?"></textarea></label>
+        <div class="btn-row field--full" style="grid-column:1/-1;align-items:center">
+          <button class="btn btn--primary btn--xl" type="submit">Get a free quote →</button>
+          <span class="reply">Free consultation. Reply within one business day.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), m = document.getElementById('msg');
+  if (q.has('sent')) { m.textContent = 'Thank you. We have your request and will reply within one business day.'; m.style.display = 'block'; m.style.color = '#FAFAFA'; }
+  else if (q.has('error')) { m.textContent = 'Sorry, that did not send. Please check your name and email and try again.'; m.style.display = 'block'; m.style.color = '#F43F5E'; }
+})();
+</script>
+<footer class="footer"><div class="wrap"><p class="legal" style="margin:0">© 2026 Maxy Web Design</p></div></footer>
+<script>
+(function () {
+  var nav = document.querySelector('.nav'), t = document.querySelector('.nav__toggle');
+  function set(o) { nav.classList.toggle('open', o); t.setAttribute('aria-expanded', o); t.setAttribute('aria-label', o ? 'Close menu' : 'Menu'); }
+  t.addEventListener('click', function () { set(!nav.classList.contains('open')); });
+  nav.querySelectorAll('.nav__links a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  window.addEventListener('resize', function () { if (innerWidth > 639) set(false); });
+})();
+</script>
+</body>
+</html>
