@@ -1,7 +1,7 @@
 <?php
 // Maxy quote form handler: emails the request to the site owner.
 // Change $to when the real inbox is ready.
-$to = 'garyf2000@gmail.com';
+$to = 'info@maxywebdesign.com';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: quote.html'); exit; }
 
